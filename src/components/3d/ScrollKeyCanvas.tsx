@@ -132,11 +132,6 @@ export default function ScrollKeyCanvas({ className = '' }: ScrollKeyCanvasProps
       {/* Radial glow behind globe */}
       <div className="absolute inset-0 radial-glow pointer-events-none z-0" />
 
-      {/* 360 Interactive Hint Badge */}
-      <div className="absolute bottom-6 right-6 z-10 pointer-events-none flex items-center gap-2 px-3 py-1.5 rounded-full glass border border-blue-500/25 text-[10px] tracking-wider text-blue-300 font-mono select-none backdrop-blur-md">
-        <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
-        <span>360° VIEW • DRAG TO ROTATE</span>
-      </div>
 
       <CanvasErrorBoundary fallback={fallbackUI}>
         <Canvas

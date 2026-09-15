@@ -4,8 +4,8 @@ export const personal = {
   name: "M. Balaji",
   title: "AI Developer",
   degree: "B.Tech — Artificial Intelligence & Data Science",
-  college: "SSMIET",
-  year: "III Year — Pursuing",
+  college: "SSM Institute of Engineering and Technology",
+  year: "2024 — 2028",
   cgpa: "7.9",
   bio: "Motivated AI Developer with hands-on internship experience, interested in machine learning, data processing and software development to build intelligent real-world solutions.",
   tagline: "Curious mind. Intelligent systems. Real-world impact.",
@@ -48,11 +48,11 @@ export const experience = [
   {
     id: "01",
     company: "Infocs Technologies",
-    role: "Intern — Artificial Intelligence Development",
+    role: "Intern — Data Analytics",
     type: "Offline Internship",
     description:
-      "Completed an offline internship focused on artificial intelligence development and gained practical exposure to AI concepts, tools and development workflows.",
-    tags: ["AI", "Machine Learning", "Development"],
+      "Completed an offline internship focused on data analytics and gained practical exposure to data processing, analytical workflows and insights extraction.",
+    tags: ["Data Analytics", "Data Analysis", "Analytics"],
   },
   {
     id: "02",
@@ -102,10 +102,10 @@ export const projects = [
 export const education = [
   {
     degree: "B.Tech — Artificial Intelligence & Data Science",
-    institution: "SSMIET",
-    status: "III Year — Pursuing",
+    institution: "SSM Institute of Engineering and Technology",
+    status: "Pursuing",
     score: "CGPA: 7.9",
-    year: "2022 — Present",
+    year: "2024 — 2028",
   },
   {
     degree: "HSC (+2) — Computer Science & Mathematics",

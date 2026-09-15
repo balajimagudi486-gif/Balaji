@@ -18,6 +18,7 @@ export const metadata: Metadata = {
     "Machine Learning",
     "Data Science",
     "Full Stack",
+    "SSM Institute of Engineering and Technology",
     "SSMIET",
     "Portfolio",
   ],

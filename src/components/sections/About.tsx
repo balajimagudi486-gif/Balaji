@@ -79,8 +79,7 @@ export default function About() {
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.25 }}
             >
-              Currently pursuing {personal.degree} at {personal.college},{' '}
-              {personal.year.toLowerCase()}, with a CGPA of {personal.cgpa}.
+              Currently pursuing {personal.degree} at {personal.college} ({personal.year}), with a CGPA of {personal.cgpa}.
             </motion.p>
 
             {/* Interests */}

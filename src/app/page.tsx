@@ -1,69 +1,85 @@
-import Image from "next/image";
+'use client';
+
+import dynamic from 'next/dynamic';
+import Navbar from '@/components/Navbar';
+import CustomCursor from '@/components/CustomCursor';
+import Hero from '@/components/sections/Hero';
+import About from '@/components/sections/About';
+import Skills from '@/components/sections/Skills';
+import Experience from '@/components/sections/Experience';
+import Projects from '@/components/sections/Projects';
+import Education from '@/components/sections/Education';
+import Contact from '@/components/sections/Contact';
+import { useEffect } from 'react';
+import Lenis from 'lenis';
+import { Mail } from 'lucide-react';
+import LinkedInIcon from '@/components/icons/LinkedInIcon';
+import { personal } from '@/data/portfolio';
 
 export default function Home() {
+  useEffect(() => {
+    const lenis = new Lenis({
+      duration: 1.4,
+      easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smoothWheel: true,
+    });
+
+    function raf(time: number) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    const id = requestAnimationFrame(raf);
+
+    // Expose lenis for Three.js scroll sync
+    (window as Window & { __lenis?: Lenis }).__lenis = lenis;
+
+    return () => {
+      cancelAnimationFrame(id);
+      lenis.destroy();
+      delete (window as Window & { __lenis?: Lenis }).__lenis;
+    };
+  }, []);
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
+    <main className="relative bg-[#0a0a0a] cursor-none">
+      <CustomCursor />
+      <Navbar />
+      <Hero />
+      <About />
+      <Skills />
+      <Experience />
+      <Projects />
+      <Education />
+      <Contact />
+      <footer className="py-8 border-t border-white/5 text-center">
+        <p className="text-[10px] tracking-[0.2em] text-white/20 uppercase mb-1">M. BALAJI</p>
+        <p className="text-[10px] tracking-[0.15em] text-white/10 uppercase mb-3">
+          AI DEVELOPER • ARTIFICIAL INTELLIGENCE & DATA SCIENCE
+        </p>
+        <div className="flex items-center justify-center gap-4 mb-4">
           <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+            href={personal.linkedin}
             target="_blank"
             rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 text-xs text-white/40 hover:text-blue-400 transition-colors"
+            aria-label="LinkedIn Profile"
           >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
+            <LinkedInIcon size={13} />
+            <span>LinkedIn</span>
           </a>
+          <span className="text-white/10">•</span>
           <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            href={`mailto:${personal.email}`}
+            className="inline-flex items-center gap-1.5 text-xs text-white/40 hover:text-blue-400 transition-colors"
+            aria-label="Email M. Balaji"
           >
-            Documentation
+            <Mail size={13} />
+            <span>Email</span>
           </a>
         </div>
-      </main>
-    </div>
+        <p className="text-[10px] text-white/15">© 2026 M. Balaji. Built with curiosity and code.</p>
+      </footer>
+    </main>
   );
 }

@@ -22,7 +22,7 @@ export const skills = [
     icon: "brain",
     items: [
       "Artificial Intelligence",
-      "Machine Learning",
+      "Basics of machine learning",
       "Python",
     ],
   },
@@ -112,7 +112,7 @@ export const education = [
     institution: "Higher Secondary",
     status: "Completed",
     score: "81%",
-    year: "2022",
+    year: "2024",
   },
 ];
 

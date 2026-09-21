@@ -10,13 +10,15 @@ import Experience from '@/components/sections/Experience';
 import Projects from '@/components/sections/Projects';
 import Education from '@/components/sections/Education';
 import Contact from '@/components/sections/Contact';
-import { useEffect } from 'react';
+import FocusRevealOpening from '@/components/FocusRevealOpening';
+import { useEffect, useState } from 'react';
 import Lenis from 'lenis';
 import { Mail } from 'lucide-react';
 import LinkedInIcon from '@/components/icons/LinkedInIcon';
 import { personal } from '@/data/portfolio';
 
 export default function Home() {
+  const [showOpening, setShowOpening] = useState(true);
   useEffect(() => {
     const lenis = new Lenis({
       duration: 1.4,
@@ -43,6 +45,9 @@ export default function Home() {
 
   return (
     <main className="relative bg-[#0a0a0a] cursor-none">
+      {showOpening && (
+        <FocusRevealOpening onComplete={() => setShowOpening(false)} />
+      )}
       <CustomCursor />
       <Navbar />
       <Hero />

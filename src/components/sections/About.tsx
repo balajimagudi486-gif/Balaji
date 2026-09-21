@@ -5,7 +5,7 @@ import { personal } from '@/data/portfolio';
 
 const interests = [
   'Artificial Intelligence',
-  'Machine Learning',
+  'Basics of machine learning',
   'Data Science',
   'Full Stack Development',
   'Intelligent Applications',
